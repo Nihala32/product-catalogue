@@ -1,0 +1,27 @@
+services:
+  # Fake email inbox for local development. View sent emails at http://localhost:8025
+  mailpit:
+    image: axllent/mailpit:v1.34.0
+    ports:
+      - "8025:8025"
+
+  api:
+    build: ./api
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # Docker-specific values; everything else comes from .env or the defaults in api/src/config.ts
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+      CORS_ORIGIN: http://localhost:8080
+    depends_on:
+      - mailpit
+
+  web:
+    build: ./web
+    ports:
+      - "8080:80"
+    depends_on:
+      api:
+        condition: service_healthy
