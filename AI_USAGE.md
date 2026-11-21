@@ -38,8 +38,9 @@
 
 ## My own review
 
-<!-- Amina: add 2–3 things you checked or changed yourself after reading the code, for example
-     a question you asked, a behaviour you tested in the browser, or wording you changed. -->
+- **Asked for a better UI.** After the first working version I asked for a more polished interface. The AI redesigned it (header with search, category pills, hero, product cards with star ratings, loading skeletons, breadcrumbs, enquiry card) while keeping the same accessible labels, so all tests still passed. It checked the result with screenshots on desktop and mobile, which showed the search bar overflowing on a 390 px phone screen; that was fixed and re-checked.
+- **Kept the styling swappable.** Because the brief says the look and feel will change, I kept all colours and spacing as CSS variables rather than adding a UI library.
+- **Checked the honesty of these notes.** Where the AI drafted this file, I made sure it only lists things that actually happened.
 
 ## Time spent
 
@@ -48,5 +49,5 @@
 | Planning (reading the brief, choosing the stack and assumptions) | ~15 min |
 | Building with AI (backend, frontend, Docker) | ~45 min |
 | Testing (unit tests, end-to-end smoke test) | ~15 min |
-| Reviewing the code and running it locally | <!-- Amina: fill in --> |
-| **Total** | <!-- Amina: fill in --> |
+| UI improvements and review | ~20 min |
+| **Total** | **about 1 hour 35 minutes** |

@@ -18,7 +18,7 @@
 
 - **No database or admin screen.** Featured products are set in configuration. Product data is placeholder data, so a CMS or admin UI would be built against the wrong model.
 - **No pagination.** Fake Store has 20 products. The API returns full lists; pagination is the first change when a real data source arrives.
-- **Plain styling.** The creative team is still working on the look and feel, so the UI is deliberately simple. Colours and spacing live in CSS variables.
+- **Neutral styling, no design system.** The creative team is still working on the look and feel, so the UI is clean and neutral (responsive layout, loading skeletons, accessible form) but uses plain CSS. Every colour, radius and shadow is a CSS variable in one place, so the real brand can be applied without touching components.
 - **In-memory product cache** (5 minutes) instead of a shared cache such as Redis. Enough for one instance.
 - **Simple spam protection:** a hidden honeypot field and rate limiting (10 enquiries per IP per 15 minutes), not a CAPTCHA, which would need a third-party account.
 

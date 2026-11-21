@@ -19,6 +19,10 @@ export function SearchBar() {
       <label htmlFor="search-input" className="visually-hidden">
         Search products
       </label>
+      <svg className="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="11" cy="11" r="7" />
+        <path d="m20 20-3.5-3.5" />
+      </svg>
       <input
         id="search-input"
         type="search"
@@ -37,28 +41,36 @@ function CategoryNav() {
   if (categories.status !== 'success') return null;
   return (
     <nav aria-label="Categories" className="categories">
-      {categories.data.map((c) => (
-        <NavLink key={c} to={`/category/${encodeURIComponent(c)}`}>
-          {c}
-        </NavLink>
-      ))}
+      <div className="container categories-inner">
+        {categories.data.map((c) => (
+          <NavLink key={c} to={`/category/${encodeURIComponent(c)}`} className="pill">
+            {c}
+          </NavLink>
+        ))}
+      </div>
     </nav>
   );
 }
 
 export function Layout() {
   return (
-    <>
+    <div className="page">
       <header className="header">
-        <Link to="/" className="brand">
-          Catalogue
-        </Link>
-        <SearchBar />
+        <div className="container header-inner">
+          <Link to="/" className="brand">
+            <span className="brand-mark" aria-hidden="true" />
+            Catalogue
+          </Link>
+          <SearchBar />
+        </div>
       </header>
       <CategoryNav />
-      <main className="main">
+      <main className="container main">
         <Outlet />
       </main>
-    </>
+      <footer className="footer">
+        <div className="container">Product catalogue · proof of concept</div>
+      </footer>
+    </div>
   );
 }

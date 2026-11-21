@@ -12,15 +12,26 @@ export function SearchPage() {
     [term],
   );
 
-  if (!term) return <p>Enter a search term to find products.</p>;
+  if (!term) {
+    return <div className="notice">Enter a search term to find products.</div>;
+  }
 
   return (
     <section>
-      <h1>Results for “{term}”</h1>
+      <div className="page-title">
+        <h1>Results for “{term}”</h1>
+        {results.status === 'success' && (
+          <p className="muted">
+            {results.data.length} {results.data.length === 1 ? 'product' : 'products'} found
+          </p>
+        )}
+      </div>
       <Loadable state={results}>
         {(products) =>
           products.length === 0 ? (
-            <p>No products match “{term}”.</p>
+            <div className="notice">
+              No products match “{term}”. Try a different word, or browse a category above.
+            </div>
           ) : (
             <ProductGrid products={products} label="Search results" />
           )

@@ -36,6 +36,9 @@ export function EnquiryForm({ productId }: { productId: string }) {
   if (done) {
     return (
       <div role="status" className="thank-you">
+        <span className="thank-you-icon" aria-hidden="true">
+          ✓
+        </span>
         <h2>Thank you!</h2>
         <p>We have received your enquiry. Our sales team will be in touch soon.</p>
       </div>
